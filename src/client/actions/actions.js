@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 
-export const addFav = (topic) => ({
-  type: types.ADD_FAV,
+export const addLocal = (topic) => ({
+  type: types.ADD_LOCAL,
   payload: topic,
 });
 
