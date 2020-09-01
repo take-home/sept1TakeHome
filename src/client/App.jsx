@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import store from './store';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import teal from '@material-ui/core/colors/teal';
