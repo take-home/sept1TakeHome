@@ -5,8 +5,7 @@ import { teal } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem} from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import BlurOnIcon from '@material-ui/icons/BlurOn';
 
 const useStyles = makeStyles((theme) => ({
   floatRight: {
@@ -34,10 +33,10 @@ export default function NavItem({topic, fav}) {
 
   return (
       <ListItem button onClick={(e) => dispatch(actions.addFav(topic))}>
-        {fav? <FavoriteIcon color="secondary" className={classes.floatRight}/> : <FavoriteBorderIcon className={classes.floatRight} color="disabled"/> }
+        <BlurOnIcon color="inherit" className={classes.floatRight}/>
         <span className={classes.name}>{topic}</span>
         <span className={classes.discount}>{topic === 'Sale Product'? '50% off' : ''}</span>
-        <ArrowForwardIosIcon className={classes.floatLeft} style={{ color: teal[500] }}/>
+        <ArrowForwardIosIcon color="inherit" className={classes.floatLeft}/>
       </ListItem>
   );
 }

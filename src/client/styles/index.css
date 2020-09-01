@@ -1,0 +1,43 @@
+.maincontainer {
+  display: 'flex';
+}
+
+.feedContainer {
+  position: fixed;
+  padding: 1%;
+  width: 100%;
+  margin-left: 250px;
+  align-items: 'center';
+  height: 700px;
+  background-color: white;
+  color: black;
+}
+
+.drawer {
+  width: 250px;
+  height: 100%;
+  flex-shrink: 0;
+  position: fixed;
+  background-color: black;
+}
+
+.sidetitle {
+  margin-left: 18px;
+  margin-top: 32px;
+}
+
+.drawerContainer {
+  overflow: 'auto';
+}
+
+.navbar {
+  padding-left: 18px;
+  padding-right: 8px;
+  display: flex;
+  background-color: black;
+  overflow: hidden;
+}
+
+.inline{
+  display: inline;
+}

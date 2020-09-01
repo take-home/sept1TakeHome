@@ -7,6 +7,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import teal from '@material-ui/core/colors/teal';
 import { CssBaseline } from '@material-ui/core';
 import MainContainer from './containers/MainContainer';
+import './styles/index.css';
 
 const myColor = teal; 
 
@@ -14,7 +15,8 @@ const theme = createMuiTheme({
   palette: {
     primary: myColor,
     secondary: myColor,
-  }
+    type: 'dark',
+  },
 })
 
 // Return the App, rendering the MainContainer within it
