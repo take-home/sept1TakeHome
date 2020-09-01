@@ -12,12 +12,12 @@ const apiRouter = require('./routes/api');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Send main app
-app.use('/', express.static(path.resolve(__dirname, '../client/assets')));
-
+// route APIs
 app.use('/api', apiRouter);
 
-app.get('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')));
+// Send main app on build
+app.use('/', express.static(path.resolve(__dirname, '../../build')));
+app.get('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../../build/index.html')));
 
 // Catch-all route handler
 app.use('*', (req, res) => {
