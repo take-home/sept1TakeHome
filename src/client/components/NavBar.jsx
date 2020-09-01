@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Toolbar, Typography, IconButton, MenuItem, Menu,
-} from '@material-ui/core';
+import { IconButton, MenuItem, Menu } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,7 +23,6 @@ export default function NavBar(){
     setAnchorEl(event.currentTarget);
   };
 
-  // eslint-disable-next-line no-unused-vars
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -72,4 +69,4 @@ export default function NavBar(){
         </Menu>
       </div>
   );
-}
+};

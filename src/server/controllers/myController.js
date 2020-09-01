@@ -8,12 +8,12 @@ myController.getInfo = (req, res, next) => {
   Models.find({}).exec()
   .then(arr => {
     res.locals.data= arr;
-    return next()
+    return next();
   })
   .catch(err => {
-    console.log('New info fail on get')
+    console.log('New info fail on get');
       return next({
-        log: "Error in get info",
+        log: 'Error in get info',
         message: { error: `This is an error ${err}` },
       });
   })
@@ -32,14 +32,14 @@ myController.postInfo = (req, res, next) => {
       return next();
     })
     .catch(err => {
-      console.log('New info fail on save')
+      console.log('New info fail on save');
         return next({
-          log: "Error in post info",
+          log: 'Error in post info',
           message: { error: `This is an error ${err}` },
         });
-    })
-  }
-}
+    });
+  };
+};
 
 // retrive task id from the request params and search it on the database and delete, them respond with an object containg all the history about the deleted model.
 myController.deleteInfo = (req, res, next) => {
@@ -50,12 +50,12 @@ myController.deleteInfo = (req, res, next) => {
     return next();
   })
   .catch(err => {
-    console.log('New info fail on delete')
+    console.log('New info fail on delete');
     return next({
-      log: "Error in delete info",
+      log: 'Error in delete info',
       message: { error: `This is an error ${err}` },
     });
-  })
-}
+  });
+};
 
 module.exports = myController;

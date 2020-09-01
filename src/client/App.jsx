@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -16,7 +16,7 @@ const theme = createMuiTheme({
     secondary: myColor,
     type: 'dark',
   },
-})
+});
 
 // Return the App, rendering the MainContainer within it
 const App = ({store}) => {

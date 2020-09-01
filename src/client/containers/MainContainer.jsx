@@ -3,8 +3,7 @@ import SideContainer from './SideContainer';
 import FeedContainer from './FeedContainer';
 import NavBar from '../components/NavBar';
 
-// holds our top header bar, as well as our side bar (drawer), will also hold our feed container
-const MainContainer = (props) => {
+const MainContainer = () => {
   return (
     <div className='maincontainer'>
       <div>

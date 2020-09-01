@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes';
+import * as types from './constants/actionTypes';
 
 // Set initial state
 const initialState = {
@@ -9,14 +9,14 @@ const initialState = {
 // all this functions could be in a helpers folder
 // send a get request to the /info API to retrive all item from database
 function getInfo() {
-  fetch("/api/info", {
-    method: "GET",
+  fetch('/api/info', {
+    method: 'GET',
     headers: {'Content-Type': 'application/json'},
   })
   .then(res => res.json())
   .then(data => {
     // object with all data base info
-    return data
+    return data;
   })
   .catch(err => {
     console.log('an error occured trying to get info');
@@ -26,8 +26,8 @@ function getInfo() {
 
 // send a post request to the /info API to save new item on database
 function postInfo(payload) {
-  fetch("/api/info", {
-    method: "POST",
+  fetch('/api/info', {
+    method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ item: payload })
   })
@@ -45,7 +45,7 @@ function postInfo(payload) {
 // send a post request to the /info API to save new item on database
 function deleteInfo(payload) {
   fetch(`/api/info/${payload}`, {
-    method: "DELETE",
+    method: 'DELETE',
     headers: {'Content-Type': 'application/json'},
   })
   .then(res => res.json())
@@ -61,14 +61,14 @@ function deleteInfo(payload) {
 
 const mainReducer = (state = initialState, action) => {
   // copy all state properties do avoid state mutability
-  let dbCopy = {...state.db}
-  let localCopy = [...state.local]
+  let dbCopy = {...state.db};
+  let localCopy = [...state.local];
 
   switch (action.type) {
     // Update state with payload
     case types.ADD_LOCAL:
       
-      favCopy.push(action.payload)
+      favCopy.push(action.payload);
 
       return {
         ...state,
@@ -77,7 +77,7 @@ const mainReducer = (state = initialState, action) => {
 
     case types.GET_FETCH:
       
-      dbCopy = getInfo()
+      dbCopy = getInfo();
 
       return {
         ...state,
@@ -86,8 +86,8 @@ const mainReducer = (state = initialState, action) => {
 
     case types.POST_FETCH:
       
-      const newObj = postInfo(action.payload)
-      dbCopy[newObj._id] = newObj.item
+      const newObj = postInfo(action.payload);
+      dbCopy[newObj._id] = newObj.item;
   
       return {
         ...state,
@@ -96,8 +96,8 @@ const mainReducer = (state = initialState, action) => {
     
     case types.DELETE_FETCH:
       
-      const id = deleteInfo(action.payload)
-      delete dbCopy[id]
+      const id = deleteInfo(action.payload);
+      delete dbCopy[id];
     
       return {
         ...state,

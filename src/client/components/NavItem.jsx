@@ -1,13 +1,12 @@
 import React from 'react';
-import * as actions from '../actions/actions';
+import * as actions from '../reducers/actions/actions';
 import { useDispatch } from 'react-redux';
-import { teal } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem} from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BlurOnIcon from '@material-ui/icons/BlurOn';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   floatRight: {
     display: 'inline',
     float: 'right',
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function NavItem({topic, fav}) {
+export default function NavItem({topic}) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -39,4 +38,4 @@ export default function NavItem({topic, fav}) {
         <ArrowForwardIosIcon color="inherit" className={classes.floatLeft}/>
       </ListItem>
   );
-}
+};

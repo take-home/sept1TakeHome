@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // save it on .env file for security
@@ -12,13 +12,13 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // add codebase name
-    dbName: "myDB"
+    dbName: 'myDB',
   })
-  .then(() => console.log("Connected to Mongo DB."))
+  .then(() => console.log('Connected to Mongo DB.'))
   .catch(err => {
-    console.log('Database fail on connect')
+    console.log('Database fail on connect');
         return next({
-          log: "Error in database",
+          log: 'Error in database',
           message: { error: `This is an error ${err}` },
         });
   });
@@ -27,14 +27,14 @@ mongoose
 const mySchema = new Schema({
   item: {
     type: String,
-    required: true
+    required: true,
   },
   created_at: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-const Model = mongoose.model("Model", mySchema);
+const Model = mongoose.model('Model', mySchema);
 
 module.exports = Model;
