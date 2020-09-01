@@ -2,14 +2,14 @@ import * as types from '../constants/actionTypes';
 
 // Set initial state
 const initialState = {
-  fav: [],
+  local: [],
   db:{},
 };
 
 // all this functions could be in a helpers folder
 // send a get request to the /info API to retrive all item from database
 function getInfo() {
-  fetch("/info", {
+  fetch("/api/info", {
     method: "GET",
     headers: {'Content-Type': 'application/json'},
   })
@@ -26,7 +26,7 @@ function getInfo() {
 
 // send a post request to the /info API to save new item on database
 function postInfo(payload) {
-  fetch("/info", {
+  fetch("/api/info", {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ item: payload })
@@ -44,7 +44,7 @@ function postInfo(payload) {
 
 // send a post request to the /info API to save new item on database
 function deleteInfo(payload) {
-  fetch(`/secret/task/${payload}`, {
+  fetch(`/api/info/${payload}`, {
     method: "DELETE",
     headers: {'Content-Type': 'application/json'},
   })
@@ -62,17 +62,17 @@ function deleteInfo(payload) {
 const mainReducer = (state = initialState, action) => {
   // copy all state properties do avoid state mutability
   let dbCopy = {...state.db}
-  let favCopy = [...state.fav]
+  let localCopy = [...state.local]
 
   switch (action.type) {
     // Update state with payload
-    case types.ADD_FAV:
+    case types.ADD_LOCAL:
       
       favCopy.push(action.payload)
 
       return {
         ...state,
-        fav: favCopy,
+        local: localCopy,
       };
 
     case types.GET_FETCH:
